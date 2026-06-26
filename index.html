@@ -1,443 +1,174 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YO SPORT | โรงงานผลิตเสื้อกีฬา</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:Arial,'Noto Sans Thai',sans-serif;
-  background:#070707;
-  color:#fff;
-  line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-.container{width:92%;max-width:1200px;margin:auto}
-
-header{
-  position:sticky;top:0;z-index:99;
-  background:rgba(0,0,0,.85);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,215,0,.25);
-}
-.nav{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:18px 0;
-}
-.logo{
-  font-size:28px;font-weight:900;color:#ffd76a;
-  letter-spacing:1px;
-}
-.menu a{
-  margin-left:24px;
-  font-weight:700;
-  color:#eee;
-}
-.menu a:hover{color:#ffd76a}
-
-.hero{
-  min-height:88vh;
-  display:flex;align-items:center;
-  background:
-    linear-gradient(120deg,rgba(0,0,0,.9),rgba(30,20,0,.7)),
-    radial-gradient(circle at right,#d4a01733,transparent 40%);
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:40px;
-  align-items:center;
-}
-.badge{
-  display:inline-block;
-  padding:8px 16px;
-  border:1px solid #ffd76a;
-  color:#ffd76a;
-  border-radius:50px;
-  margin-bottom:18px;
-}
-h1{
-  font-size:58px;
-  line-height:1.1;
-  margin-bottom:20px;
-}
-h1 span{color:#ffd76a}
-.hero p{
-  font-size:20px;
-  color:#ddd;
-  margin-bottom:28px;
-}
-.btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn{
-  padding:14px 24px;
-  border-radius:10px;
-  font-weight:900;
-}
-.btn-primary{
-  background:linear-gradient(135deg,#ffd76a,#b88718);
-  color:#111;
-}
-.btn-outline{
-  border:1px solid #ffd76a;
-  color:#ffd76a;
-}
-.hero-card{
-  background:linear-gradient(145deg,#161616,#050505);
-  border:1px solid rgba(255,215,0,.35);
-  border-radius:24px;
-  padding:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,.5);
-}
-.hero-card h2{color:#ffd76a;font-size:34px}
-.price{
-  font-size:52px;
-  font-weight:900;
-  color:#fff;
-}
-.price span{color:#ffd76a}
-
-section{padding:80px 0}
-.section-title{
-  text-align:center;
-  margin-bottom:45px;
-}
-.section-title h2{
-  font-size:38px;
-  color:#ffd76a;
-}
-.section-title p{color:#ccc}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-.card{
-  background:#111;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:20px;
-  padding:28px;
-  transition:.3s;
-}
-.card:hover{
-  transform:translateY(-6px);
-  border-color:#ffd76a;
-}
-.card h3{
-  color:#ffd76a;
-  margin-bottom:12px;
-  font-size:24px;
-}
-.card p{color:#ccc}
-
-.products{
-  background:#0d0d0d;
-}
-.product-card{
-  background:#151515;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid rgba(255,215,0,.18);
-}
-.product-img{
-  height:230px;
-  background:linear-gradient(135deg,#222,#000);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:64px;
-}
-.product-info{padding:24px}
-.product-info h3{color:#ffd76a;font-size:24px}
-.product-info p{color:#ccc;margin-top:8px}
-
-.price-table{
-  overflow:auto;
-  background:#111;
-  border-radius:22px;
-  border:1px solid rgba(255,215,0,.25);
-}
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:720px;
-}
-th,td{
-  padding:18px;
-  text-align:center;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-th{
-  background:#1f1a08;
-  color:#ffd76a;
-}
-td{color:#eee}
-
-.process{
-  background:linear-gradient(135deg,#070707,#171000);
-}
-.steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-.step{
-  text-align:center;
-  padding:28px 18px;
-  background:#111;
-  border-radius:18px;
-  border:1px solid rgba(255,215,0,.18);
-}
-.num{
-  width:52px;height:52px;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 16px;
-  background:#ffd76a;
-  color:#111;
-  border-radius:50%;
-  font-weight:900;
-  font-size:22px;
-}
-
-.contact{
-  background:#080808;
-}
-.contact-box{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  background:#111;
-  border:1px solid rgba(255,215,0,.25);
-  border-radius:24px;
-  padding:36px;
-}
-.contact-item{
-  margin-bottom:16px;
-  color:#ddd;
-  font-size:18px;
-}
-.contact-item b{color:#ffd76a}
-
-footer{
-  text-align:center;
-  padding:28px;
-  background:#000;
-  color:#aaa;
-  border-top:1px solid rgba(255,215,0,.2);
-}
-
-@media(max-width:900px){
-  .hero-grid,.contact-box{grid-template-columns:1fr}
-  .grid,.steps{grid-template-columns:1fr 1fr}
-  h1{font-size:42px}
-}
-@media(max-width:600px){
-  .menu{display:none}
-  .grid,.steps{grid-template-columns:1fr}
-  h1{font-size:36px}
-  .hero{min-height:auto;padding:70px 0}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YO SPORT | โรงงานผลิตเสื้อกีฬา Sublimation</title>
+  <meta name="description" content="YO SPORT โรงงานผลิตเสื้อกีฬา Sublimation ครบวงจร ออกแบบ ผลิต ตัดเย็บ QC และจัดส่งทั่วประเทศ" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-<header>
-  <div class="container nav">
-    <div class="logo">YO SPORT</div>
-    <div class="menu">
-      <a href="#services">บริการ</a>
-      <a href="#products">สินค้า</a>
-      <a href="#price">ราคา</a>
-      <a href="#contact">ติดต่อ</a>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="YO SPORT Home">
+        <img src="assets/logo/logo-header.png" alt="YO SPORT" />
+      </a>
+      <button class="nav-toggle" aria-label="เปิดเมนู">☰</button>
+      <nav class="nav-menu">
+        <a href="#products">สินค้า</a>
+        <a href="#gallery">ผลงาน</a>
+        <a href="#services">บริการ</a>
+        <a href="#about">เกี่ยวกับเรา</a>
+        <a href="#contact" class="nav-cta">ติดต่อเรา</a>
+      </nav>
     </div>
-  </div>
-</header>
+  </header>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <div class="badge">โรงงานผลิตเสื้อกีฬา Sublimation</div>
-      <h1>ผลิตเสื้อทีม<br><span>สวย คม ทน</span><br>พร้อมลุยทุกสนาม</h1>
-      <p>YO SPORT รับผลิตเสื้อกีฬา เสื้อทีม เสื้อกีฬาสี เสื้อหน่วยงาน และเสื้อกิจกรรม ออกแบบฟรี ไม่มีขั้นต่ำ จัดส่งทั่วประเทศ</p>
-      <div class="btns">
-        <a class="btn btn-primary" href="#contact">สั่งผลิต / สอบถาม</a>
-        <a class="btn btn-outline" href="#products">ดูแบบเสื้อ</a>
-      </div>
-    </div>
-
-    <div class="hero-card">
-<h2>รับผลิตเสื้อ<br>คุณภาพพรีเมียม</h2>
-
-<p>
-ผลิตด้วยระบบพิมพ์ <strong>Sublimation</strong><br><br>
-
-<div class="feature-item">✅ สีสด คมชัด</div>
-<div class="feature-item">✅ ไม่ลอก ไม่ซีด</div>
-<div class="feature-item">✅ ระบายอากาศดี</div>
-<div class="feature-item">✅ ออกแบบฟรี</div>
-<div class="feature-item">✅ ผลิตสำหรับโรงเรียน หน่วยงาน องค์กร และทีมกีฬา</div>
-</p>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <div class="section-title">
-      <h2>บริการของเรา</h2>
-      <p>ครบทุกขั้นตอน ตั้งแต่ออกแบบจนถึงจัดส่ง</p>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h3>ออกแบบฟรี</h3>
-        <p>ช่วยออกแบบลายเสื้อให้ตรงกับทีม สีประจำทีม และงบประมาณ</p>
-      </div>
-      <div class="card">
-        <h3>ไม่มีขั้นต่ำ</h3>
-        <p>สั่งจำนวนน้อยหรือจำนวนมากก็ผลิตได้ เหมาะกับทุกทีม</p>
-      </div>
-      <div class="card">
-        <h3>จัดส่งทั่วประเทศ</h3>
-        <p>รองรับลูกค้าทั่วไทย แพ็กงานเรียบร้อย พร้อมส่งถึงมือ</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="products" class="products">
-  <div class="container">
-    <div class="section-title">
-      <h2>ประเภทสินค้า</h2>
-      <p>ผลิตได้หลายรูปแบบตามความต้องการ</p>
-    </div>
-
-    <div class="grid">
-      <div class="product-card">
-        <div class="product-img">👕</div>
-        <div class="product-info">
-          <h3>เสื้อโปโลกีฬา</h3>
-          <p>เหมาะสำหรับโรงเรียน หน่วยงาน อบต. อปท. และทีมกิจกรรม</p>
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">YO SPORT • PREMIUM SPORTSWEAR</span>
+          <h1>ผลิตเสื้อทีม<br><span>สวย คม ทน</span><br>พร้อมลุยทุกสนาม</h1>
+          <p>โรงงานผลิตเสื้อกีฬา Sublimation ครบวงจร ออกแบบฟรี ผลิตโดยทีมงานมืออาชีพ และจัดส่งทั่วประเทศ</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">สั่งผลิต / สอบถาม</a>
+            <a class="btn secondary" href="#products">ดูแบบเสื้อ</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <img class="hero-shirt" src="assets/hero/hero-shirt.png" alt="ตัวอย่างเสื้อ YO SPORT" />
         </div>
       </div>
+    </section>
 
-      <div class="product-card">
-        <div class="product-img">⚽</div>
-        <div class="product-info">
-          <h3>เสื้อทีมแข่งขัน</h3>
-          <p>ฟุตบอล วอลเลย์บอล แบดมินตัน วิ่ง และกีฬาสี</p>
+    <section class="stats section-pad">
+      <div class="container stats-grid">
+        <div><strong>10+</strong><span>ปีประสบการณ์</span></div>
+        <div><strong>50,000+</strong><span>เสื้อที่ผลิต</span></div>
+        <div><strong>2,000+</strong><span>ลูกค้าที่ไว้วางใจ</span></div>
+        <div><strong>77</strong><span>จังหวัดจัดส่ง</span></div>
+      </div>
+    </section>
+
+    <section class="why section-pad">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>WHY YO SPORT</span>
+          <h2>จุดเด่นของเรา</h2>
+          <p>คุณภาพระดับโรงงาน ใส่ใจทุกรายละเอียด ตั้งแต่แบบแรกจนถึงส่งมอบ</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><b>01</b><h3>ผลิตโดยโรงงาน</h3><p>ดูแลทุกขั้นตอนด้วยทีมงานของเราเอง</p></article>
+          <article class="feature-card reveal"><b>02</b><h3>Sublimation 100%</h3><p>สีสด คมชัด ไม่ลอก ไม่ซีดง่าย</p></article>
+          <article class="feature-card reveal"><b>03</b><h3>เย็บคุณภาพ</h3><p>ตะเข็บแน่น ใส่สบาย ใช้งานได้จริง</p></article>
+          <article class="feature-card reveal"><b>04</b><h3>ส่งตรงเวลา</h3><p>วางแผนผลิตเป็นระบบ พร้อมจัดส่งทั่วประเทศ</p></article>
         </div>
       </div>
+    </section>
 
-      <div class="product-card">
-        <div class="product-img">🎨</div>
-        <div class="product-info">
-          <h3>เสื้อ Custom</h3>
-          <p>ออกแบบเฉพาะทีม ใส่โลโก้ ชื่อ เบอร์ และลวดลายได้ครบ</p>
+    <section id="products" class="products section-pad dark-block">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>PRODUCTS</span>
+          <h2>ตัวอย่างงานเสื้อกีฬา</h2>
+          <p>รวมผลงาน Mockup เสื้อจาก YO SPORT สำหรับทีม โรงเรียน หน่วยงาน และกิจกรรม</p>
+        </div>
+        <div class="image-grid products-grid">
+          <img src="assets/products/product01.jpg" alt="Product 01" loading="lazy">
+          <img src="assets/products/product02.jpg" alt="Product 02" loading="lazy">
+          <img src="assets/products/product03.jpg" alt="Product 03" loading="lazy">
+          <img src="assets/products/product04.jpg" alt="Product 04" loading="lazy">
+          <img src="assets/products/product05.jpg" alt="Product 05" loading="lazy">
+          <img src="assets/products/product06.jpg" alt="Product 06" loading="lazy">
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="price">
-  <div class="container">
-    <div class="section-title">
-      <h2>ตารางไซซ์</h2>
-      <p>ขนาดมาตรฐานสำหรับเสื้อกีฬา</p>
-    </div>
-
-    <div class="price-table">
-      <table>
-        <tr>
-          <th>ไซซ์</th>
-          <th>SS</th>
-          <th>S</th>
-          <th>M</th>
-          <th>L</th>
-          <th>XL</th>
-          <th>2XL</th>
-          <th>3XL</th>
-          <th>4XL</th>
-          <th>5XL</th>
-        </tr>
-        <tr>
-          <td>รอบอก</td>
-          <td>36</td>
-          <td>38</td>
-          <td>40</td>
-          <td>42</td>
-          <td>44</td>
-          <td>46</td>
-          <td>48</td>
-          <td>50</td>
-          <td>52</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="process">
-  <div class="container">
-    <div class="section-title">
-      <h2>ขั้นตอนการสั่งผลิต</h2>
-      <p>ง่าย รวดเร็ว เหมาะกับลูกค้าทุกกลุ่ม</p>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="num">1</div>
-        <h3>เลือกแบบ</h3>
-        <p>ส่งตัวอย่างหรือแนวทางที่ต้องการ</p>
+    <section id="gallery" class="gallery section-pad">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>GALLERY</span>
+          <h2>ผลงานจากลูกค้าจริง</h2>
+          <p>ภาพบรรยากาศทีมและลูกค้าที่เลือกใช้เสื้อจาก YO SPORT</p>
+        </div>
+        <div class="image-grid gallery-grid">
+          <img src="assets/gallery/gallery01.jpg" alt="Gallery 01" loading="lazy">
+          <img src="assets/gallery/gallery02.jpg" alt="Gallery 02" loading="lazy">
+          <img src="assets/gallery/gallery03.jpg" alt="Gallery 03" loading="lazy">
+          <img src="assets/gallery/gallery04.jpg" alt="Gallery 04" loading="lazy">
+          <img src="assets/gallery/gallery05.jpg" alt="Gallery 05" loading="lazy">
+          <img src="assets/gallery/gallery06.jpg" alt="Gallery 06" loading="lazy">
+          <img src="assets/gallery/gallery07.jpg" alt="Gallery 07" loading="lazy">
+          <img src="assets/gallery/gallery08.jpg" alt="Gallery 08" loading="lazy">
+        </div>
       </div>
-      <div class="step">
-        <div class="num">2</div>
-        <h3>ออกแบบ</h3>
-        <p>จัดทำ Mockup ให้ตรวจสอบ</p>
+    </section>
+
+    <section id="services" class="services section-pad dark-block">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>SERVICES</span>
+          <h2>บริการครบวงจร</h2>
+          <p>ออกแบบ ผลิต ตัดเย็บ ตรวจคุณภาพ และจัดส่ง จบครบในที่เดียว</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal"><img src="assets/services/design.jpg" alt="Design"><div><h3>งานออกแบบ</h3><p>ออกแบบฟรี ดูแลแบบให้เหมาะกับทีมและเอกลักษณ์ของคุณ</p></div></article>
+          <article class="service-card reveal"><img src="assets/services/sublimation.jpg" alt="Sublimation"><div><h3>Sublimation</h3><p>พิมพ์สีสด คมชัด รายละเอียดครบ เหมาะกับเสื้อกีฬา</p></div></article>
+          <article class="service-card reveal"><img src="assets/services/sewing.jpg" alt="Sewing"><div><h3>งานตัดเย็บ</h3><p>เย็บประณีต แข็งแรง ใส่สบาย พร้อมใช้งานจริง</p></div></article>
+          <article class="service-card reveal"><img src="assets/services/delivery.jpg" alt="Delivery"><div><h3>จัดส่งทั่วประเทศ</h3><p>แพ็กสินค้าเรียบร้อย ส่งตรงเวลา ถึงมือลูกค้าอย่างมั่นใจ</p></div></article>
+        </div>
       </div>
-      <div class="step">
-        <div class="num">3</div>
-        <h3>ผลิตจริง</h3>
-        <p>พิมพ์ลายด้วยระบบ Sublimation</p>
+    </section>
+
+    <section id="about" class="about section-pad">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <span class="eyebrow">ABOUT YO SPORT</span>
+          <h2>โรงงานผลิตเสื้อกีฬาที่พร้อมดูแลคุณทุกขั้นตอน</h2>
+          <p>YO SPORT ดูแลการผลิตเสื้อกีฬา Sublimation ตั้งแต่การออกแบบ พิมพ์ ตัดเย็บ ตรวจสอบคุณภาพ แพ็กสินค้า และจัดส่ง เพื่อให้ลูกค้าได้รับงานที่สวย คม ทน และใช้งานได้จริง</p>
+          <ul>
+            <li>ออกแบบฟรี และแก้แบบได้</li>
+            <li>Sublimation 100%</li>
+            <li>QC ทุกขั้นตอนก่อนส่งมอบ</li>
+            <li>เหมาะสำหรับโรงเรียน หน่วยงาน ทีมกีฬา และกิจกรรม</li>
+          </ul>
+        </div>
+        <div class="about-images reveal">
+          <img src="assets/about/factory.jpg" alt="Factory">
+          <img src="assets/about/team.jpg" alt="Team">
+        </div>
       </div>
-      <div class="step">
-        <div class="num">4</div>
-        <h3>จัดส่ง</h3>
-        <p>แพ็กสินค้าและส่งทั่วประเทศ</p>
+    </section>
+
+    <section id="contact" class="contact section-pad">
+      <div class="container contact-box reveal">
+        <h2>พร้อมเริ่มผลิตเสื้อทีมของคุณหรือยัง?</h2>
+        <p>ส่งแบบ สี จำนวน และรายละเอียดที่ต้องการ ทีมงาน YO SPORT พร้อมดูแล</p>
+        <div class="contact-actions">
+          <a class="btn primary" href="tel:0896221197">โทร 089-622-1197</a>
+          <a class="btn secondary" href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn secondary" href="#">LINE: @yosportmuk</a>
+        </div>
       </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><img src="assets/logo/logo-header.png" alt="YO SPORT"><p>โรงงานผลิตเสื้อกีฬา Sublimation ครบวงจร</p></div>
+      <div><h4>เมนู</h4><a href="#products">สินค้า</a><a href="#gallery">ผลงาน</a><a href="#services">บริการ</a><a href="#contact">ติดต่อ</a></div>
+      <div><h4>ติดต่อ</h4><p>โทร: 089-622-1197</p><p>LINE: @yosportmuk</p><p>Facebook: YO SPORT</p></div>
     </div>
-  </div>
-</section>
+    <div class="copyright">© 2026 YO SPORT. All rights reserved.</div>
+  </footer>
 
-<section id="contact" class="contact">
-  <div class="container">
-    <div class="section-title">
-      <h2>ติดต่อ YO SPORT</h2>
-      <p>สอบถามราคา ส่งแบบ หรือเริ่มสั่งผลิตได้ทันที</p>
-    </div>
-
-    <div class="contact-box">
-      <div>
-        <div class="contact-item"><b>Instagram:</b> @yosport.muk</div>
-        <div class="contact-item"><b>Facebook:</b> yosport</div>
-        <div class="contact-item"><b>LINE:</b> @yosportmuk</div>
-      </div>
-      <div>
-        <div class="contact-item"><b>โทร:</b> 095-619-4035</div>
-        <div class="contact-item"><b>โทร:</b> 089-622-1197</div>
-        <div class="contact-item"><b>บริการ:</b> ออกแบบฟรี • ไม่มีขั้นต่ำ • จัดส่งทั่วประเทศ</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 YO SPORT | โรงงานผลิตเสื้อกีฬา Sublimation
-</footer>
-
+  <button class="back-top" aria-label="กลับขึ้นด้านบน">↑</button>
+  <div class="lightbox" aria-hidden="true"><button>×</button><img src="" alt="preview"></div>
+  <script src="script.js"></script>
 </body>
 </html>
